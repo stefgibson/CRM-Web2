@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-<title> Stef's CRM </title>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title> Stef's CRM </title>
   </head>
   <body>
-  <header></header>
-  <nav> </nav>
-  <footer></footer>
-    <%= yield %>
+    <header></header>
+
+
+
+    <nav>
+      <div class = "navigation">
+        <ul>
+          <li><a href="/">HOME</a></li>
+          <li><a href="/contacts">VIEW CONTACTS</a></li>
+          <li><a href="/contacts/new">ADD CONTACTS</a></li>
+
+      </div>
+
+    </nav>
+
+
+
+      <%= yield %>
+
+
+
+    <footer></footer>
+
   </body>
 </html>
