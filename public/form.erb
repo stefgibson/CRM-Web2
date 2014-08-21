@@ -1,0 +1,67 @@
+<form id = "film-form" action="/films" method="GET">
+
+
+<h1> Create a new film </h1>
+
+<fieldset class = field>
+  <legend> Genre </legend>
+  <label><input type = "radio" name = "genre" value = "action">
+  Action
+  </label>
+ <label> <input type = "radio" name = "genre" value = "adventure">
+Adventure
+ </label>
+ <label> <input type = "radio" name = "genre" value = "romance">
+  Romance
+ </label>
+
+
+
+</fieldset>
+
+<input type ="text" name = "username">
+<input type = "radio" = "">
+<input type = "time">
+<input type = "email">
+<input type = "checkbox">
+<input type = "hidden">
+<input type = "url">
+<input type = "submit">
+
+<div class = "field">
+  <label for="ID of input element(film-title)" Title </label>
+</div>
+
+<textarea name=""id=""></textarea>
+
+<select name="" id="">
+  <option value="1">OPTION 1 </option>
+
+
+
+
+  <input type = "checkbox">
+  <input type = "checkbox">
+  <input type = "checkbox">
+
+
+</form>
+
+
+
+
+
+<!--
+Requests are made up of two parts:
+Verb: GET(appends the parameters to the query string of the URL-won't change data on server),
+Post (the form data is going to append the parameters to the body of the request-these create new stuff),
+Put, Patch and delete (method)
+Noun: /films, /films/:id  (path)
+
+Gets/films => get me all the films
+Post/films => create a new film
+
+When you do a form there are two things you need to specify:
+you have to specify is you want it to be anything other than GET
+For a form you need POST
+-->
