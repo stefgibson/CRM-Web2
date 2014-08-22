@@ -4,27 +4,41 @@
 
 
     <link rel="stylesheet" type="text/css" href="/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
+
     <title> Stef's CRM </title>
   </head>
   <body>
-    <header></header>
 
+    <header>
+        <%= yield %>
+
+    </header>
 
 
     <nav>
       <div class = "navigation">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/contacts">View Contacts</a></li>
-          <li><a href="/contacts/new">Add Contacts</a></li>
+
+        <a href="/">HOME</a>
+        <a href="/contacts">VIEW CONTACTS</a>
+        <a href="/contacts/new">ADD CONTACTS</a>
 
       </div>
 
     </nav>
 
+  <div class ="about">
+     <img src = "Image/heart.png">
+    <h2> Here at Stef's, we believe in taking good care of our clients. Take the time to thoughtfully update the CRM so that we're all on the same page. </h2>
 
 
-      <%= yield %>
+
+
+  </div>
+
+
+
 
 
 
