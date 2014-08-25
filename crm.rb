@@ -1,42 +1,67 @@
-require_relative 'rolodex'
 require_relative 'contact'
+require_relative 'rolodex'
 require 'sinatra'
-# get '/' do
-#   "Main Menu"
-# end
 
-# get '/' do
-#   erb :index
-# end
-
-# get "/" do
-#   "Hello World"
-# end
 @@rolodex = Rolodex.new
 
-get '/' do
-  @crm_app_name = "Stef's CRM"
+
+get "/" do
+  @crm_app_name = "Stef's"
   erb :index
 end
-get "/contacts/new_contact" do
-  erb :new
-end
-get "/contacts" do
-  # @contacts = []
-  # @contacts << Contact.new("Julie", "Hache", "julie@bitmakerlabs.com", "Instructor")
-  # @contacts << Contact.new("Will", "Richman", "will@bitmakerlabs.com", "Co-Founder")
-  # @contacts << Contact.new("Chris", "Johnston", "chris@bitmakerlabs.com", "Instructor")
 
+get "/contacts" do
   erb :contacts
 end
-get '/contacts/new' do
+
+get "/contacts/new" do
   erb :new_contact
 end
 
-post '/contacts' do
+post "/contacts" do
   new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
   @@rolodex.add_contact(new_contact)
   redirect to('/contacts')
 end
 
+get "/contacts/:id" do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    erb :show_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
 
+get "/contacts/:id/edit" do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    erb :edit_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+put "/contacts/:id" do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    @contact.first_name = params[:first_name]
+    @contact.last_name = params[:last_name]
+    @contact.email = params[:email]
+    @contact.note = params[:note]
+
+    redirect to("/contacts")
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+delete "/contacts/:id" do
+  @contact = @@rolodex.find(params[:id].to_i)
+  if @contact
+    @@rolodex.remove_contact(@contact)
+    redirect to("/contacts")
+  else
+    raise Sinatra::NotFound
+  end
+end

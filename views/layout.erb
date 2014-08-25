@@ -12,37 +12,29 @@
   <body>
 
     <header>
-        <%= yield %>
-
-    </header>
-
-
-    <nav>
+        <nav>
       <div class = "navigation">
 
         <a href="/">HOME</a>
         <a href="/contacts">VIEW CONTACTS</a>
         <a href="/contacts/new">ADD CONTACTS</a>
+        <a href="/contacts/:id/edit">EDIT CONTACTS</a>
+
 
       </div>
 
     </nav>
 
-  <div class ="about">
-     <img src = "Image/heart.png">
-    <h2> Here at Stef's, we believe in taking good care of our clients. Take the time to thoughtfully update the CRM so that we're all on the same page. </h2>
+    </header>
 
 
 
-
-  </div>
+  <%= yield %>
 
 
 
 
 
-
-    <footer></footer>
 
   </body>
 </html>
